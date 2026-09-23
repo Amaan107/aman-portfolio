@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Amanullah Khan — Computer Science student & aspiring software engineer. Explore my projects, skills, and experience in frontend development, Flutter, and web engineering.">
+  <meta name="keywords" content="Amanullah Khan, portfolio, frontend developer, software engineer, web developer, computer science, COMSATS">
+  <meta name="author" content="Amanullah Khan">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Amanullah Khan — Portfolio">
+  <meta property="og:description" content="Computer Science student & aspiring software engineer. Building polished digital experiences.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amanullahkhan.dev">
+  <meta property="og:image" content="assets/og-preview.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <title>Amanullah Khan — Portfolio</title>
+
+  <!-- Preconnect to Google Fonts for speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amanullah Khan",
+    "url": "https://amanullahkhan.dev",
+    "jobTitle": "Computer Science Student",
+    "alumniOf": "COMSATS University",
+    "knowsAbout": ["JavaScript", "Flutter", "Web Development", "Frontend Engineering"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================
+       PRELOADER
+       ============================================ -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader__ring">
+      <div class="preloader__ring-segment"></div>
+      <div class="preloader__ring-segment"></div>
+      <div class="preloader__ring-segment"></div>
+    </div>
+    <span class="preloader__text">Loading</span>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#hero" class="nav__logo" aria-label="Home">
+        <span class="nav__logo-bracket">&lt;</span>AK<span class="nav__logo-bracket"> /&gt;</span>
+      </a>
+
+      <ul class="nav__menu" id="navMenu" role="menubar">
+        <li role="none"><a href="#hero" class="nav__link active" role="menuitem">Home</a></li>
+        <li role="none"><a href="#about" class="nav__link" role="menuitem">About</a></li>
+        <li role="none"><a href="#skills" class="nav__link" role="menuitem">Skills</a></li>
+        <li role="none"><a href="#projects" class="nav__link" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#experience" class="nav__link" role="menuitem">Journey</a></li>
+        <li role="none"><a href="#contact" class="nav__link" role="menuitem">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="nav__hamburger" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+          <span class="nav__hamburger-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="hero">
+      <!-- Animated background blobs -->
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+        <div class="hero__blob hero__blob--3"></div>
+        <canvas id="particleCanvas" class="hero__particles"></canvas>
+      </div>
+
+      <div class="hero__content container">
+        <p class="hero__greeting reveal-up">Hello, I'm</p>
+        <h1 class="hero__name reveal-up">
+          <span class="hero__name-first">Amanullah</span>
+          <span class="hero__name-last">Khan</span>
+        </h1>
+        <div class="hero__tagline reveal-up">
+          <span class="hero__typed" id="typedOutput"></span>
+          <span class="hero__cursor" aria-hidden="true">|</span>
+        </div>
+
+        <p class="hero__description reveal-up">
+          Crafting polished digital experiences with clean code and thoughtful design.
+          Currently pursuing Computer Science and exploring the edge of what's possible on the web.
+        </p>
+
+        <div class="hero__cta reveal-up">
+          <a href="#projects" class="btn btn--primary">
+            <span>View Projects</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--outline">
+            <span>Contact Me</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="hero__socials reveal-up">
+          <a href="https://github.com/amanullahkhan" target="_blank" rel="noopener" class="hero__social-link" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/amanullahkhan" target="_blank" rel="noopener" class="hero__social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:amanullah@example.com" class="hero__social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section class="section about" id="about">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__tag reveal-up">Get to know me</span>
+          <h2 class="section__title reveal-up">About <span class="text-gradient">Me</span></h2>
+        </header>
+
+        <div class="about__grid">
+          <div class="about__content reveal-up">
+            <p class="about__text">
+              I'm a Computer Science student at <strong>COMSATS University</strong> with a deep
+              passion for building elegant, user-centric digital products. My journey started
+              with curiosity about how websites work and evolved into a genuine love for
+              frontend engineering and mobile development.
+            </p>
+            <p class="about__text">
+              I believe great software is invisible — it just works. That philosophy drives
+              every line of code I write, whether it's a responsive web interface, a Flutter
+              app, or a backend API. I'm always learning, always building, and always pushing
+              to ship cleaner, faster, more accessible experiences.
+            </p>
+            <p class="about__text">
+              When I'm not coding, you'll find me exploring new technologies, contributing to
+              open-source projects, or dissecting the UI/UX of products I admire. I'm actively
+              looking for opportunities where I can grow alongside experienced engineers and
+              make a real impact.
+            </p>
+
+            <a href="#contact" class="btn btn--primary about__cta">
+              <span>Let's Connect</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="about__stats reveal-up">
+            <div class="stat-card">
+              <span class="stat-card__number" data-count="15">0</span><span class="stat-card__suffix">+</span>
+              <span class="stat-card__label">Projects Built</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__number" data-count="8">0</span><span class="stat-card__suffix">+</span>
+              <span class="stat-card__label">Technologies</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__number" data-count="500">0</span><span class="stat-card__suffix">+</span>
+              <span class="stat-card__label">GitHub Commits</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-card__number" data-count="3">0</span><span class="stat-card__suffix">+</span>
+              <span class="stat-card__label">Years Learning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SKILLS SECTION
+         ============================================ -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__tag reveal-up">What I work with</span>
+          <h2 class="section__title reveal-up">Skills & <span class="text-gradient">Tools</span></h2>
+        </header>
+
+        <div class="skills__grid">
+
+          <article class="skill-card reveal-up" data-tilt>
+            <div class="skill-card__icon" style="--accent: #e44d26;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.076-.757.076-.771.076-.761H6.535l.227 2.716.01.116h7.659l-.317 3.573-2.141.579-2.168-.588-.139-1.57H7.348l.273 3.042 4.352 1.208.015-.004 4.354-1.217.598-6.631h-9.21z"/></svg>
+            </div>
+            <h3 class="skill-card__title">HTML</h3>
+            <p class="skill-card__desc">Semantic markup & accessibility</p>
+            <div class="skill-card__bar">
+              <div class="skill-card__progress" style="--progress: 90%; --accent: #e44d26;"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal-up" data-tilt>
+            <div class="skill-card__icon" style="--accent: #2965f1;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.72l.24 2.573h6.255l-.36 3.65-2.93.788-2.93-.791-.19-2.034H7.346l.348 3.924 4.291 1.227 4.299-1.228 1.306-14.4z"/></svg>
+            </div>
+            <h3 class="skill-card__title">CSS</h3>
+            <p class="skill-card__desc">Animations, layouts & responsive design</p>
+            <div class="skill-card__bar">
+              <div class="skill-card__progress" style="--progress: 88%; --accent: #2965f1;"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal-up" data-tilt>
+            <div class="skill-card__icon" style="--accent: #f0db4f;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.405-.6-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
+            </div>
+            <h3 class="skill-card__title">JavaScript</h3>
+            <p class="skill-card__desc">DOM, async, ES6+ & APIs</p>
+            <div class="skill-card__bar">
+              <div class="skill-card__progress" style="--progress: 85%; --accent: #f0db4f;"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal-up" data-tilt>
+            <div class="skill-card__icon" style="--accent: #027DFD;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>
+            </div>
+            <h3 class="skill-card__title">Flutter</h3>
+            <p class="skill-card__desc">Cross-platform mobile apps</p>
+            <div class="skill-card__bar">
+              <div class="skill-card__progress" style="--progress: 78%; --accent: #027DFD;"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal-up" data-tilt>
+            <div class="skill-card__icon" style="--accent: #00B4AB;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H.015v-3.789l4.09-16.106zM20 15.737l-8-8V4.5l8 8v3.237zm-8-8V4.5l-4 4v3.237l4-4z"/></svg>
+            </div>
+            <h3 class="skill-card__title">Dart</h3>
+            <p class="skill-card__desc">OOP, null safety & async</p>
+            <div class="skill-card__bar">
+              <div class="skill-card__progress" style="--progress: 75%; --accent: #00B4AB;"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal-up" data-tilt>
+            <div class="skill-card__icon" style="--accent: #FFCA28;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.89 15.672L6.255.461A.542.542 0 0 1 7.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 0 0-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 0 0 1.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 0 0-.96 0L3.53 17.984z"/></svg>
+            </div>
+            <h3 class="skill-card__title">Firebase</h3>
+            <p class="skill-card__desc">Auth, Firestore & hosting</p>
+            <div class="skill-card__bar">
+              <div class="skill-card__progress" style="--progress: 72%; --accent: #FFCA28;"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal-up" data-tilt>
+            <div class="skill-card__icon" style="--accent: #336791;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a.16.16 0 0 0-.152.105l-.763 2.27a.16.16 0 0 0 .152.215h.927a.16.16 0 0 0 .152-.105l.763-2.27a.16.16 0 0 0-.152-.215zm2.197 0h-.927a.16.16 0 0 0-.152.105l-.763 2.27a.16.16 0 0 0 .152.215h.927a.16.16 0 0 0 .152-.105l.763-2.27a.16.16 0 0 0-.152-.215zm8.145-12.747c-.36 0-.695.126-.943.367-.245.236-.4.557-.446.916l-.026.213c-.006.063-.01.126-.01.193 0 .496.174.94.51 1.28.337.34.78.52 1.254.52.13 0 .26-.014.386-.047.126-.033.246-.08.36-.14l-.006-.02c-.227-.16-.453-.32-.68-.48-.08-.06-.114-.174-.087-.274l.373-1.37c.027-.1-.02-.2-.114-.247a7.82 7.82 0 0 0-.57-.267 1.327 1.327 0 0 0-.547-.124v.48z"/><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 17.08c-.12.227-.333.387-.58.44a1.613 1.613 0 0 1-.727-.014 4.459 4.459 0 0 1-1.08-.487c-.347-.207-.667-.453-.96-.733a8.11 8.11 0 0 1-.76-.867l-.187.093c-.653.314-1.36.48-2.08.48-.293 0-.593-.033-.88-.1a3.68 3.68 0 0 1-1.56-.78 3.6 3.6 0 0 1-1.04-1.36 4.413 4.413 0 0 1-.373-1.793c0-.633.113-1.24.34-1.813a4.413 4.413 0 0 1 .973-1.507 4.56 4.56 0 0 1 1.487-1.02 4.543 4.543 0 0 1 1.853-.373c.68 0 1.333.14 1.94.413l.027-.14c.093-.467.28-.907.547-1.3a3.6 3.6 0 0 1 .96-.947c.38-.26.807-.453 1.26-.567.467-.113.94-.14 1.413-.08l.173.027c.2.033.393.08.58.14.053.02.1.04.153.067l-.013.013c-.1.033-.2.08-.3.127-.7.333-1.267.867-1.64 1.533-.373.667-.547 1.42-.507 2.18l.02.287c.006.14.02.28.04.42a5.04 5.04 0 0 0 .12.593 4.2 4.2 0 0 0 .293.773l.187.36c.24.44.407.913.493 1.4.087.493.087.993 0 1.487a3.58 3.58 0 0 1-.68 1.467z"/></svg>
+            </div>
+            <h3 class="skill-card__title">SQL</h3>
+            <p class="skill-card__desc">Queries, joins & database design</p>
+            <div class="skill-card__bar">
+              <div class="skill-card__progress" style="--progress: 70%; --accent: #336791;"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal-up" data-tilt>
+            <div class="skill-card__icon" style="--accent: #F05032;">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 0 1 2.327 2.341l2.66 2.66a1.838 1.838 0 1 1-1.103 1.036l-2.48-2.48v6.53a1.838 1.838 0 1 1-1.513-.036V8.73a1.838 1.838 0 0 1-.998-2.41L7.636 3.59.45 10.774c-.604.604-.604 1.582 0 2.186l10.48 10.48c.604.603 1.582.603 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.186"/></svg>
+            </div>
+            <h3 class="skill-card__title">Git / GitHub</h3>
+            <p class="skill-card__desc">Version control & collaboration</p>
+            <div class="skill-card__bar">
+              <div class="skill-card__progress" style="--progress: 82%; --accent: #F05032;"></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PROJECTS SECTION
+         ============================================ -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__tag reveal-up">Recent work</span>
+          <h2 class="section__title reveal-up">Featured <span class="text-gradient">Projects</span></h2>
+        </header>
+
+        <div class="projects__grid">
+
+          <!-- Project 1 -->
+          <article class="project-card reveal-up" data-tilt>
+            <div class="project-card__preview">
+              <div class="project-card__img" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                <span class="project-card__img-label">TaskFlow</span>
+              </div>
+              <div class="project-card__overlay">
+                <a href="#" class="btn btn--sm btn--primary" target="_blank" rel="noopener">Live Demo</a>
+                <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">Source Code</a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">TaskFlow — Project Manager</h3>
+              <p class="project-card__desc">
+                A real-time collaborative task management app with drag-and-drop kanban boards,
+                user authentication, and cloud sync.
+              </p>
+              <ul class="project-card__tags">
+                <li>Flutter</li>
+                <li>Firebase</li>
+                <li>Dart</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card reveal-up" data-tilt>
+            <div class="project-card__preview">
+              <div class="project-card__img" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                <span class="project-card__img-label">DevWeather</span>
+              </div>
+              <div class="project-card__overlay">
+                <a href="#" class="btn btn--sm btn--primary" target="_blank" rel="noopener">Live Demo</a>
+                <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">Source Code</a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">DevWeather — Weather Dashboard</h3>
+              <p class="project-card__desc">
+                A beautiful weather application with animated forecasts, location search, and
+                interactive maps. Built with vanilla JS and a public API.
+              </p>
+              <ul class="project-card__tags">
+                <li>JavaScript</li>
+                <li>REST API</li>
+                <li>CSS3</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card reveal-up" data-tilt>
+            <div class="project-card__preview">
+              <div class="project-card__img" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                <span class="project-card__img-label">SnapNotes</span>
+              </div>
+              <div class="project-card__overlay">
+                <a href="#" class="btn btn--sm btn--primary" target="_blank" rel="noopener">Live Demo</a>
+                <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">Source Code</a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">SnapNotes — Notes App</h3>
+              <p class="project-card__desc">
+                A minimal, fast note-taking PWA with markdown support, offline storage, and
+                clean UI. Syncs across devices via Firebase.
+              </p>
+              <ul class="project-card__tags">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Firebase</li>
+                <li>PWA</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card reveal-up" data-tilt>
+            <div class="project-card__preview">
+              <div class="project-card__img" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                <span class="project-card__img-label">FitTrack</span>
+              </div>
+              <div class="project-card__overlay">
+                <a href="#" class="btn btn--sm btn--primary" target="_blank" rel="noopener">Live Demo</a>
+                <a href="#" class="btn btn--sm btn--outline" target="_blank" rel="noopener">Source Code</a>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">FitTrack — Fitness Companion</h3>
+              <p class="project-card__desc">
+                A mobile-first fitness tracker with workout logging, progress charts, and
+                goal-setting. Features Material Design and smooth transitions.
+              </p>
+              <ul class="project-card__tags">
+                <li>Flutter</li>
+                <li>Dart</li>
+                <li>SQL</li>
+                <li>Charts</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         EXPERIENCE / EDUCATION SECTION
+         ============================================ -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__tag reveal-up">Where I've been</span>
+          <h2 class="section__title reveal-up">My <span class="text-gradient">Journey</span></h2>
+        </header>
+
+        <div class="timeline">
+          <div class="timeline__line" aria-hidden="true"></div>
+
+          <article class="timeline__item reveal-up">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__card">
+              <span class="timeline__date">2023 — Present</span>
+              <h3 class="timeline__title">BS Computer Science</h3>
+              <p class="timeline__org">COMSATS University Islamabad</p>
+              <p class="timeline__desc">
+                Studying core CS fundamentals — data structures, algorithms, OOP, databases,
+                and software engineering. Active in coding societies and hackathons.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal-up">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__card">
+              <span class="timeline__date">2024</span>
+              <h3 class="timeline__title">Frontend Development</h3>
+              <p class="timeline__org">Self-taught & Online Courses</p>
+              <p class="timeline__desc">
+                Deep-dived into HTML, CSS, and JavaScript. Built responsive websites,
+                mastered CSS animations, and learned modern JS patterns (ES6+, async/await).
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal-up">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__card">
+              <span class="timeline__date">2024 — 2025</span>
+              <h3 class="timeline__title">Mobile App Development</h3>
+              <p class="timeline__org">Flutter & Dart Ecosystem</p>
+              <p class="timeline__desc">
+                Picked up Flutter and Dart for cross-platform mobile development.
+                Built several apps with Firebase backends, published to app stores.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal-up">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__card">
+              <span class="timeline__date">2025 — Present</span>
+              <h3 class="timeline__title">Open Source & Freelance</h3>
+              <p class="timeline__org">GitHub & Community</p>
+              <p class="timeline__desc">
+                Contributing to open-source repos, taking on freelance projects, and
+                building a portfolio of production-quality work. Actively seeking internship
+                and full-time opportunities.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__tag reveal-up">Get in touch</span>
+          <h2 class="section__title reveal-up">Let's <span class="text-gradient">Talk</span></h2>
+          <p class="section__subtitle reveal-up">
+            Have a project in mind, a question, or just want to say hello? I'd love to hear from you.
+          </p>
+        </header>
+
+        <div class="contact__grid">
+          <!-- Contact Info -->
+          <div class="contact__info reveal-up">
+            <div class="contact__info-card">
+              <div class="contact__info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:amanullah@example.com">amanullah@example.com</a>
+              </div>
+            </div>
+            <div class="contact__info-card">
+              <div class="contact__info-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div>
+                <h4>GitHub</h4>
+                <a href="https://github.com/amanullahkhan" target="_blank" rel="noopener">github.com/amanullahkhan</a>
+              </div>
+            </div>
+            <div class="contact__info-card">
+              <div class="contact__info-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </div>
+              <div>
+                <h4>LinkedIn</h4>
+                <a href="https://linkedin.com/in/amanullahkhan" target="_blank" rel="noopener">linkedin.com/in/amanullahkhan</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact__form reveal-up" id="contactForm" novalidate>
+            <div class="form-group">
+              <input type="text" id="formName" name="name" class="form-input" placeholder=" " required autocomplete="name">
+              <label for="formName" class="form-label">Your Name</label>
+              <span class="form-error" id="nameError">Please enter your name</span>
+            </div>
+            <div class="form-group">
+              <input type="email" id="formEmail" name="email" class="form-input" placeholder=" " required autocomplete="email">
+              <label for="formEmail" class="form-label">Your Email</label>
+              <span class="form-error" id="emailError">Please enter a valid email</span>
+            </div>
+            <div class="form-group">
+              <textarea id="formMessage" name="message" class="form-input form-textarea" placeholder=" " required rows="5"></textarea>
+              <label for="formMessage" class="form-label">Your Message</label>
+              <span class="form-error" id="messageError">Please enter a message</span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">
+              <span>Send Message</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">&copy; 2026 Amanullah Khan. Built with passion & clean code.</p>
+      <button class="footer__top-btn" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <svg class="toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <span class="toast__message" id="toastMessage">Message sent successfully!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
